@@ -745,10 +745,20 @@
             <div class="research-item">
                 <h3><a href="https://evergreen.dartmouth.edu/">Conversation-Level Reinforcement Learning</a></h3>
                 <p class="role">Evergreen &middot; Adaptive Peer Support &middot; 2025 &ndash; Present</p>
+                <p style="font-size: 0.92rem; color: var(--text-light); line-height: 1.7; margin-bottom: 0.8rem;">
+                    Demand for mental health support far exceeds available clinical capacity — 31&percnt; of Dartmouth students screen positive for at least one disorder, yet only a third seek help. My dissertation builds <em>Evergreen</em>, an adaptive peer-support AI that can sustain supportive, multi-turn conversations with college students and, eventually, breast cancer survivors.
+                </p>
+                <p style="font-size: 0.92rem; color: var(--text-light); line-height: 1.7; margin-bottom: 0.8rem;">
+                    Current LLM-based chatbots evaluate responses one turn at a time, miss whether the conversation as a whole was actually supportive, and tend to overfit to a single LLM judge. I address this through three aims: <strong>(1)</strong> a conversation-level reinforcement learning framework that combines Feedback Conditioned Policy (FCP) with Group Relative Policy Optimization (GRPO), scored by a calibrated ensemble of heterogeneous LLM judges across safety, effectiveness, personalization, and conversational-competence dimensions; <strong>(2)</strong> integration of continuous <strong>passive behavioral sensing</strong> data (GPS, actigraphy, communication, sleep) from real Eversource students to personalize responses to each student's typical patterns and deviations from their baseline; <strong>(3)</strong> generalization to <em>Therabot</em>, a post-treatment support agent for breast cancer survivors, testing whether the same framework adapts beyond the college-wellbeing setting.
+                </p>
+                <p style="font-size: 0.92rem; color: var(--text-light); line-height: 1.7; margin-bottom: 1rem;">
+                    To date I have trained 10 model variants in a 2&times;2&times;2 factorial across Eversource SFT &times; FCP Replay &times; GRPO, run cross-judge validation across four judge families (Llama 70B, Qwen 2.5 72B, Qwen 3.5 27B, GPT-OSS 120B), deployed a blinded pairwise human-evaluation interface to real Dartmouth evaluators, and identified a fundamental tension in outcome-only rubric design that systematically penalizes evidence-based reflective counseling techniques.
+                </p>
                 <ul>
                     <li><strong>GRPO + FCP</strong> conversation-level reward optimization with multi-judge LLM ensemble evaluation</li>
                     <li>Blinded <strong>A/B human evaluation</strong> interface deployed to real student evaluators</li>
-                    <li><strong>Passive behavioral sensing</strong> integration</li>
+                    <li><strong>Passive behavioral sensing</strong> integration from smartphone and wearable streams</li>
+                    <li>Cross-domain generalization from college wellbeing to post-treatment cancer support</li>
                 </ul>
                 <div class="research-tags">
                     <span class="tag">PyTorch</span>
