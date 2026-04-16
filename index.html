@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="oxhvuKGXmhNRrfhwMsaQNTdETQaRy3VCIFIoUWnk-tg" />
+    <link rel="icon" type="image/png" href="favicon.png">
+    <title>Freya Ma</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep: #1B4D3E;
+            --mid: #2D6A4F;
+            --light: #A5D6A7;
+            --pale: #C8E6C9;
+            --mist: #EDF5F0;
+            --cream: #FAFCFA;
+            --white: #FFFFFF;
+            --text: #2C3E35;
+            --text-light: #5A6E63;
+            --text-muted: #8A9B91;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            color: var(--text);
+            background: var(--cream);
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        /* ── Nav ── */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 1rem 0;
+            background: rgba(250, 252, 250, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(27, 77, 62, 0.06);
+        }
+
+        .nav-inner {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--deep);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 0.82rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--mid); }
+
+        /* ── Main container ── */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ── Hero Banner ── */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            margin-top: 3rem;
+            overflow: hidden;
+            background: linear-gradient(90deg, #1b4d3e 0%, #1b4d3e 33%, transparent 59%, transparent 80%, #53727f 88%, #53727f 100%);
+        }
+
+        .hero-img {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            height: auto;
+            width: 100%;
+            min-width: 100%;
+            transform: translate(calc(-50% + 154px), -208px) scale(0.570);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg,
+                #1b4d3e 0%,
+                #1b4d3e 33%,
+                rgba(27,77,62,0.4) 46%,
+                transparent 59%,
+                transparent 80%,
+                rgba(83,114,127,0.4) 84%,
+                #53727f 88%,
+                #53727f 100%
+            );
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .hero-text {
+            position: absolute;
+            bottom: 12%;
+            left: 5%;
+            max-width: 440px;
+            z-index: 20;
+        }
+
+        .hero-text h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            font-weight: 300;
+            color: #FFFFFF;
+            line-height: 1.15;
+            margin-bottom: 0.3rem;
+            opacity: 0;
+            animation: fadeUp 1s 0.3s ease forwards;
+        }
+
+        .hero-text p {
+            font-size: 0.95rem;
+            color: #FFFFFF;
+            font-weight: 300;
+            opacity: 0;
+            animation: fadeUp 1s 0.5s ease forwards;
+        }
+
+        .hero-text .accent-line {
+            width: 40px;
+            height: 2px;
+            background: var(--light);
+            margin-bottom: 0.8rem;
+            opacity: 0;
+            animation: fadeUp 1s 0.2s ease forwards;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── About section below hero ── */
+        .about {
+            padding-top: 1.5rem;
+            padding-bottom: 1rem;
+        }
+
+        .about-bio {
+            font-size: 0.98rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.75;
+            max-width: 100%;
+        }
+
+        .about-bio a {
+            color: var(--mid);
+            text-decoration: none;
+            border-bottom: 1px solid var(--pale);
+            transition: border-color 0.3s;
+        }
+
+        .about-bio a:hover { border-color: var(--mid); }
+
+        .header-links {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .header-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.45rem 1rem;
+            border: 1px solid rgba(27, 77, 62, 0.15);
+            border-radius: 5px;
+            color: var(--mid);
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 400;
+            transition: background 0.3s, border-color 0.3s;
+        }
+
+        .header-link:hover {
+            background: var(--mist);
+            border-color: var(--mid);
+        }
+
+        .header-link svg {
+            width: 15px;
+            height: 15px;
+            fill: currentColor;
+        }
+
+        .interests {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            justify-content: center;
+        }
+
+        .interest-tag {
+            padding: 0.3rem 0.75rem;
+            background: var(--mist);
+            color: var(--mid);
+            font-size: 0.78rem;
+            font-weight: 500;
+            border-radius: 16px;
+        }
+
+        /* ── Divider ── */
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(27,77,62,0.1), transparent);
+            margin: 0;
+        }
+
+        /* ── Sections ── */
+        section {
+            padding: 2rem 0;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: var(--deep);
+            margin-bottom: 1rem;
+            display: inline-block;
+            position: relative;
+            padding-bottom: 0.4rem;
+        }
+
+        .section-flower {
+            width: 22px;
+            height: 22px;
+            vertical-align: -3px;
+            margin-right: 0.3rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2.5px;
+            background: linear-gradient(90deg, var(--mid), var(--light), transparent);
+            border-radius: 2px;
+        }
+
+        /* ── News ── */
+        .news-list {
+            list-style: none;
+        }
+
+        .news-item {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 1rem;
+            padding: 0.7rem 0;
+            border-bottom: 1px solid rgba(27, 77, 62, 0.05);
+        }
+
+        .news-item:last-child { border-bottom: none; }
+
+        .news-date {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            padding-top: 0.1rem;
+        }
+
+        .news-text {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        .news-text a {
+            color: var(--mid);
+            text-decoration: none;
+            border-bottom: 1px solid var(--pale);
+        }
+
+        .news-text a:hover { border-color: var(--mid); }
+
+        .news-text strong { font-weight: 500; color: var(--text); }
+
+        /* ── Research ── */
+        .research-item {
+            padding: 1.4rem;
+            background: var(--white);
+            border: 1px solid rgba(27, 77, 62, 0.06);
+            border-radius: 8px;
+            margin-bottom: 0.8rem;
+            transition: box-shadow 0.3s;
+        }
+
+        .research-item:hover {
+            box-shadow: 0 4px 20px rgba(27, 77, 62, 0.06);
+        }
+
+        .research-item h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.35rem;
+            font-weight: 500;
+            color: var(--deep);
+            margin-bottom: 0.15rem;
+        }
+
+        .research-item h3 a {
+            color: inherit;
+            text-decoration: none;
+            border-bottom: 1.5px solid var(--pale);
+            transition: border-color 0.3s;
+        }
+
+        .research-item h3 a:hover { border-color: var(--mid); }
+
+        .research-item .role {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 0.8rem;
+        }
+
+        .research-item ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .research-item li {
+            position: relative;
+            padding-left: 1rem;
+            margin-bottom: 0.35rem;
+            font-size: 0.92rem;
+            color: var(--text-light);
+        }
+
+        .research-item li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.55em;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--light);
+        }
+
+        .research-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+            margin-top: 0.8rem;
+        }
+
+        .tag {
+            padding: 0.2rem 0.55rem;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--mid);
+            background: var(--mist);
+            border-radius: 3px;
+        }
+
+        /* ── Education ── */
+        .edu-item {
+            display: grid;
+            grid-template-columns: 90px 1fr;
+            gap: 1.2rem;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(27, 77, 62, 0.05);
+        }
+
+        .edu-item:last-child { border-bottom: none; }
+
+        .edu-years {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            padding-top: 0.15rem;
+        }
+
+        .edu-info h4 {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 0.1rem;
+        }
+
+        .edu-info p {
+            font-size: 0.88rem;
+            color: var(--text-light);
+        }
+
+        /* ── Footer ── */
+        footer {
+            padding: 2.5rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(27, 77, 62, 0.06);
+        }
+
+        footer p {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        /* ── Grid World RL ── */
+        .rl-demo {
+            max-width: 580px;
+            background: linear-gradient(160deg, #f0f7f2 0%, #e8f1eb 40%, #f5f0eb 100%);
+            border-radius: 14px;
+            padding: 1.5rem;
+            border: 1px solid rgba(27, 77, 62, 0.08);
+        }
+
+        .rl-grid-wrap {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .rl-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 44px);
+            grid-template-rows: repeat(6, 44px);
+            gap: 2px;
+        }
+
+        .rl-cell {
+            width: 44px;
+            height: 44px;
+            background: rgba(255,255,255,0.6);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            position: relative;
+            transition: background 0.2s;
+        }
+
+        .rl-cell.wall {
+            background: var(--deep);
+            border-radius: 6px;
+        }
+
+        .rl-cell.goal {
+            background: rgba(165, 214, 167, 0.5);
+        }
+
+        .rl-cell.goal::after {
+            content: '🌸';
+            font-size: 1.2rem;
+        }
+
+        .rl-cell.trap {
+            background: rgba(200, 160, 140, 0.3);
+        }
+
+        .rl-cell.trap::after {
+            content: '🥀';
+            font-size: 1rem;
+        }
+
+        .rl-cell.agent {
+            z-index: 2;
+        }
+
+        .rl-cell.agent::before {
+            content: '';
+            width: 24px;
+            height: 24px;
+            background: var(--mid);
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(27, 77, 62, 0.3);
+            position: absolute;
+            transition: all 0.15s ease;
+        }
+
+        .rl-cell .arrow {
+            font-size: 0.7rem;
+            color: rgba(45, 106, 79, 0.35);
+            position: absolute;
+        }
+
+        .rl-cell.visited {
+            background: rgba(200, 230, 201, 0.25);
+        }
+
+        .rl-info {
+            flex: 1;
+            min-width: 160px;
+        }
+
+        .rl-stat {
+            margin-bottom: 0.8rem;
+        }
+
+        .rl-stat-label {
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .rl-stat-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: var(--deep);
+        }
+
+        .rl-legend {
+            margin-top: 0.8rem;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .rl-legend span {
+            display: inline-block;
+            margin-right: 0.3rem;
+        }
+
+        .rl-controls {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .rl-btn {
+            padding: 0.45rem 1rem;
+            background: rgba(255,255,255,0.7);
+            border: 1px solid rgba(27, 77, 62, 0.15);
+            border-radius: 8px;
+            color: var(--mid);
+            font-family: inherit;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .rl-btn:hover {
+            background: rgba(255,255,255,0.95);
+            border-color: var(--light);
+        }
+
+        .rl-btn.active {
+            background: var(--mid);
+            color: white;
+            border-color: var(--mid);
+        }
+
+        .rl-msg {
+            margin-top: 0.8rem;
+            font-size: 0.82rem;
+            color: var(--text-light);
+            min-height: 1.5em;
+        }
+
+        /* ── Wave Footer ── */
+        .wave-footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 50;
+            pointer-events: none;
+        }
+
+        .wave-footer svg {
+            display: block;
+            width: 100%;
+            height: 160px;
+        }
+
+        .wave-footer path:nth-child(1) { animation: wave1 4s ease-in-out infinite; }
+        .wave-footer path:nth-child(2) { animation: wave2 3s ease-in-out infinite; }
+        .wave-footer path:nth-child(3) { animation: wave3 5s ease-in-out infinite; }
+
+        @keyframes wave1 {
+            0% { d: path("M0,50 C120,90 240,30 360,70 C480,110 600,40 720,80 C840,120 960,50 1080,85 C1200,40 1320,90 1440,50 L1440,200 L0,200 Z"); }
+            50% { d: path("M0,85 C120,40 240,95 360,45 C480,30 600,90 720,45 C840,30 960,95 1080,50 C1200,90 1320,40 1440,85 L1440,200 L0,200 Z"); }
+            100% { d: path("M0,50 C120,90 240,30 360,70 C480,110 600,40 720,80 C840,120 960,50 1080,85 C1200,40 1320,90 1440,50 L1440,200 L0,200 Z"); }
+        }
+
+        @keyframes wave2 {
+            0% { d: path("M0,90 C120,60 240,110 360,75 C480,50 600,100 720,65 C840,45 960,100 1080,70 C1200,105 1320,60 1440,90 L1440,200 L0,200 Z"); }
+            50% { d: path("M0,65 C120,100 240,55 360,95 C480,105 600,60 720,100 C840,110 960,65 1080,95 C1200,55 1320,100 1440,65 L1440,200 L0,200 Z"); }
+            100% { d: path("M0,90 C120,60 240,110 360,75 C480,50 600,100 720,65 C840,45 960,100 1080,70 C1200,105 1320,60 1440,90 L1440,200 L0,200 Z"); }
+        }
+
+        @keyframes wave3 {
+            0% { d: path("M0,120 C120,100 240,140 360,110 C480,90 600,135 720,105 C840,85 960,130 1080,110 C1200,140 1320,100 1440,120 L1440,200 L0,200 Z"); }
+            50% { d: path("M0,105 C120,135 240,95 360,125 C480,140 600,100 720,130 C840,140 960,105 1080,125 C1200,95 1320,135 1440,105 L1440,200 L0,200 Z"); }
+            100% { d: path("M0,120 C120,100 240,140 360,110 C480,90 600,135 720,105 C840,85 960,130 1080,110 C1200,140 1320,100 1440,120 L1440,200 L0,200 Z"); }
+        }
+
+        /* ── Reveal ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 700px) {
+            .hero { height: 220px; margin-top: 2.5rem; }
+            .hero-overlay {
+                background: linear-gradient(0deg, rgba(27,77,62,0.75) 0%, rgba(27,77,62,0.2) 50%, transparent 100%);
+            }
+            .hero-text { bottom: 8%; left: 5%; right: 5%; max-width: none; }
+            .hero-text h1 { font-size: 2.2rem; }
+
+            .news-item { grid-template-columns: 70px 1fr; }
+            .edu-item { grid-template-columns: 80px 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-inner">
+            <span class="nav-name"><img src="dartmouth.png" alt="Dartmouth" style="height: 18px; vertical-align: -3px; margin-right: 0.4rem;">Freya G.F. Ma</span>
+            <ul class="nav-links">
+                <li><a href="#news">News</a></li>
+                <li><a href="#research">Research</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <img src="headshot.jpg" alt="Freya Ma" class="hero-img">
+        <div class="hero-overlay"></div>
+        <div class="hero-text">
+            <div class="accent-line"></div>
+            <h1>Freya Ma</h1>
+            <p>PhD Student &middot; Center for Technology and Behavioral Health</p>
+            <p style="font-size: 0.82rem; opacity: 0.85; margin-top: 0.15rem;"><svg width="12" height="12" viewBox="0 0 24 24" fill="white" style="vertical-align: -1px; margin-right: 3px;"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Dartmouth College &middot; Hanover, NH</p>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <section class="about">
+            <p class="about-bio">
+                Originally from Shenzhen, raised in Vancouver. I studied MIS and business analytics at UBC, then CS at Northwestern. After working in venture capital, strategy consulting, and decision analytics, I left industry to pursue research at Dartmouth, where I now focus on reinforcement learning for conversational AI, multi-judge LLM evaluation, and passive behavioral sensing.
+            </p>
+            <p class="about-bio" style="margin-bottom: 0.8rem; font-size: 0.9rem; color: var(--mid); font-weight: 500; text-align: center;">
+                <a href="https://geiselmed.dartmouth.edu/jacobsonlab/" style="color: var(--mid); font-weight: 600;">AIM-HIGH Lab</a> (AI and Mental Health: Innovation in Technology-Guided Healthcare) &middot; Advised by Prof. Nicholas C. Jacobson
+            </p>
+            <div class="interests" style="margin-bottom: 1.2rem;">
+                <span class="interest-tag" style="background:#E8F5E9; color:#2E7D4F;">Reinforcement Learning</span>
+                <span class="interest-tag" style="background:#E3F0FA; color:#3A7AB5;">LLM-as-a-Judge</span>
+                <span class="interest-tag" style="background:#EDE7F6; color:#7B5EA7;">Reward Modeling</span>
+                <span class="interest-tag" style="background:#E8F5E9; color:#2E7D4F;">Adaptive Conversational AI</span>
+                <span class="interest-tag" style="background:#EDE7F6; color:#7B5EA7;">Passive Behavioral Sensing</span>
+                <span class="interest-tag" style="background:#E3F0FA; color:#3A7AB5;">Digital Wellbeing</span>
+                <span class="interest-tag" style="background:#EDE7F6; color:#7B5EA7;">Human-AI Interaction</span>
+                <span class="interest-tag" style="background:#E3F0FA; color:#3A7AB5;">Multi-Agent LLM Systems</span>
+                <span class="interest-tag" style="background:#E8F5E9; color:#2E7D4F;">Multi-Modal Modeling</span>
+            </div>
+                    <div class="header-links">
+                        <a href="mailto:guofang.ma.gr@dartmouth.edu" class="header-link">
+                            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                            Email
+                        </a>
+                        <a href="https://github.com/freyamaly" class="header-link" target="_blank">
+                            <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                            GitHub
+                        </a>
+                        <a href="https://www.linkedin.com/in/freya-ma/" class="header-link" target="_blank">
+                            <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                            LinkedIn
+                        </a>
+                        <a href="https://scholar.google.com/citations?user=YOUR_ID" class="header-link" target="_blank">
+                            <svg viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg>
+                            Scholar
+                        </a>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <section id="news" class="reveal">
+            <h2 class="section-title"><img src="section_flower.png" class="section-flower">News</h2>
+            <ul class="news-list">
+                <li class="news-item">
+                    <span class="news-date">Mar 2026</span>
+                    <span class="news-text">Deployed blinded <strong>A/B human evaluation</strong> interface for the <a href="https://evergreen.dartmouth.edu/">Evergreen</a> platform with real student evaluators.</span>
+                </li>
+                <li class="news-item">
+                    <span class="news-date">Jun 2025</span>
+                    <span class="news-text">Joined the <strong>AIM-HIGH Lab</strong> after three rotations.</span>
+                </li>
+                <li class="news-item">
+                    <span class="news-date">2025</span>
+                    <span class="news-text">Published first-author paper from master's work: "Modeling the Impact of Social Determinants on Breast Cancer Screening."</span>
+                </li>
+                <li class="news-item">
+                    <span class="news-date">2024</span>
+                    <span class="news-text">Started PhD in <strong>Quantitative Biomedical Sciences</strong> at Dartmouth College.</span>
+                </li>
+            </ul>
+        </section>
+
+        <div class="divider"></div>
+
+        <section id="research" class="reveal">
+            <h2 class="section-title"><img src="section_flower.png" class="section-flower">Research</h2>
+
+            <p style="font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.6rem;">Dissertation</p>
+
+            <div class="research-item">
+                <h3><a href="https://evergreen.dartmouth.edu/">Conversation-Level Reinforcement Learning</a></h3>
+                <p class="role">Evergreen &middot; Adaptive Peer Support &middot; 2025 &ndash; Present</p>
+                <ul>
+                    <li><strong>GRPO + FCP</strong> conversation-level reward optimization with multi-judge LLM ensemble evaluation</li>
+                    <li>Blinded <strong>A/B human evaluation</strong> interface deployed to real student evaluators</li>
+                    <li><strong>Passive behavioral sensing</strong> integration</li>
+                </ul>
+                <div class="research-tags">
+                    <span class="tag">PyTorch</span>
+                    <span class="tag">HuggingFace</span>
+                    <span class="tag">vLLM</span>
+                    <span class="tag">veRL</span>
+                    <span class="tag">Streamlit</span>
+                </div>
+            </div>
+
+            <p style="font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.6rem; margin-top: 1.5rem;">Side Projects</p>
+
+            <div class="research-item">
+                <h3>Wearable Transformer Models</h3>
+                <p class="role">Digital Phenotyping for Cancer Risk &middot; 2024 &ndash; 2025</p>
+                <ul>
+                    <li>Fine-tuned transformer (PAT) on 7,771 participants across 4 NHANES cohorts</li>
+                    <li>Outperformed LSTM, 3D CNN, and ConvLSTM baselines; 66% AUC</li>
+                </ul>
+            </div>
+
+            <div class="research-item">
+                <h3>Idiographic ML &amp; Passive Sensing</h3>
+                <p class="role">Personalized Pain Forecasting &middot; 2024 &ndash; 2025</p>
+                <ul>
+                    <li>Personalized Gaussian Process and Random Forest models integrating EMA + Fitbit</li>
+                    <li>150 spine surgery patients; outperformed population-level baselines</li>
+                </ul>
+            </div>
+
+            <div class="research-item">
+                <h3>ML for Health Equity</h3>
+                <p class="role">Breast Cancer Screening Prediction &middot; 2023 &ndash; 2024</p>
+                <ul>
+                    <li>ML framework across 63,000+ patient records</li>
+                    <li>70-71% AUC for mammogram scheduling and attendance prediction</li>
+                </ul>
+                <div class="research-tags">
+                    <span class="tag">Published, 2025</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <section id="rl-demo" class="reveal">
+            <h2 class="section-title"><img src="section_flower.png" class="section-flower">Learning from Experience</h2>
+            <p style="font-size: 0.92rem; color: var(--text-light); margin-bottom: 1.2rem; max-width: 580px;">
+                At its core, my research is about learning to make better choices from feedback. Here's a simplified version — an agent navigating a grid, figuring out which paths lead to rewards and which to avoid.
+            </p>
+            <div class="rl-demo">
+                <div class="rl-grid-wrap">
+                    <div>
+                        <canvas id="gridCanvas" width="276" height="276" style="border-radius:10px;"></canvas>
+                    </div>
+                    <div class="rl-info">
+                        <div class="rl-stat">
+                            <span class="rl-stat-label">Episode</span>
+                            <span class="rl-stat-value" id="rl-episode">0</span>
+                        </div>
+                        <div class="rl-stat">
+                            <span class="rl-stat-label">Steps</span>
+                            <span class="rl-stat-value" id="rl-steps">0</span>
+                        </div>
+                        <div class="rl-stat">
+                            <span class="rl-stat-label">Best Path</span>
+                            <span class="rl-stat-value" id="rl-best">--</span>
+                        </div>
+                        <div class="rl-legend">
+                            <div><img src="garden_pink.png" width="16" style="vertical-align:-3px;"> Goal (+10)</div>
+                            <div><img src="garden_leaf2.png" width="16" style="vertical-align:-3px;"> Trap (-5)</div>
+                            <div><img src="garden_leaf.png" width="16" style="vertical-align:-3px;"> Bonus (+3)</div>
+                            <div style="margin-top:0.3rem;">Dark = walls &nbsp; Circle = agent</div>
+                        </div>
+                        <div class="rl-controls">
+                            <button class="rl-btn" id="rl-start" onclick="toggleRL()">Watch AI</button>
+                            <button class="rl-btn" id="rl-play" onclick="togglePlay()">Play</button>
+                            <button class="rl-btn" onclick="resetRL()">Reset</button>
+                        </div>
+                        <div id="rl-arrows" style="display:none; margin-top:0.5rem;">
+                            <div style="display:flex; flex-direction:column; align-items:center; gap:3px;">
+                                <button class="rl-btn" onclick="movePlayer(-1,0)" style="padding:0.3rem 0.8rem;">↑</button>
+                                <div style="display:flex; gap:3px;">
+                                    <button class="rl-btn" onclick="movePlayer(0,-1)" style="padding:0.3rem 0.8rem;">←</button>
+                                    <button class="rl-btn" onclick="movePlayer(1,0)" style="padding:0.3rem 0.8rem;">↓</button>
+                                    <button class="rl-btn" onclick="movePlayer(0,1)" style="padding:0.3rem 0.8rem;">→</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rl-msg" id="rl-msg">Watch the AI learn or play yourself.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </div>
+
+    <footer style="padding-bottom: 160px;">
+        <div class="wave-footer">
+            <svg viewBox="0 0 1440 200" preserveAspectRatio="none">
+                <path d="M0,50 C120,90 240,30 360,70 C480,110 600,40 720,80 C840,120 960,50 1080,85 C1200,40 1320,90 1440,50 L1440,200 L0,200 Z" fill="#D4CCE6" opacity="0.22"/>
+                <path d="M0,90 C120,60 240,110 360,75 C480,50 600,100 720,65 C840,45 960,100 1080,70 C1200,105 1320,60 1440,90 L1440,200 L0,200 Z" fill="#8BBAD4" opacity="0.22"/>
+                <path d="M0,120 C120,100 240,140 360,110 C480,90 600,135 720,105 C840,85 960,130 1080,110 C1200,140 1320,100 1440,120 L1440,200 L0,200 Z" fill="#7ABF8A" opacity="0.18"/>
+            </svg>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Grid World Q-Learning
+        const G = 10, CS = 28;
+        const canvas = document.getElementById('gridCanvas');
+        canvas.width = G * CS;
+        canvas.height = G * CS;
+        const ctx = canvas.getContext('2d');
+
+        // Load images
+        const imgs = {};
+        ['garden_pink.png','garden_leaf2.png','garden_leaf.png','garden_blue.png'].forEach(src => {
+            const img = new Image(); img.src = src; imgs[src] = img;
+        });
+
+        // Grid: 0=empty, 1=wall, 2=goal, 3=trap, 4=bonus
+        const grid = [
+            [0,0,1,1,0,0,0,1,0,0],
+            [0,1,0,0,0,1,0,0,1,0],
+            [0,3,0,1,3,0,0,1,0,0],
+            [0,1,1,1,0,1,0,3,0,1],
+            [0,0,3,0,0,1,0,1,0,0],
+            [1,1,0,1,0,3,0,0,0,1],
+            [0,0,0,1,4,1,1,0,1,0],
+            [0,1,3,0,0,0,3,0,0,0],
+            [0,0,1,1,0,1,0,1,3,0],
+            [1,0,0,3,0,0,0,1,4,2],
+        ];
+
+        const start = [0,0], goal = [9,9];
+        const actions = [[0,-1],[0,1],[-1,0],[1,0]]; // L R U D
+        let Q = {}, ep = 0, bestSteps = Infinity, running = false, interval = null;
+        const lr = 0.2, gamma = 0.9;
+        let epsilon = 1.0;
+
+        function key(r,c) { return r+','+c; }
+
+        function getQ(s,a) { return (Q[key(s[0],s[1])+','+a]) || 0; }
+        function setQ(s,a,v) { Q[key(s[0],s[1])+','+a] = v; }
+
+        function bestAction(s) {
+            let best = 0, bestV = getQ(s,0);
+            for (let a=1;a<4;a++) { const v=getQ(s,a); if(v>bestV){bestV=v;best=a;} }
+            return best;
+        }
+
+        function drawGrid(agentR, agentC, trail) {
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            for (let r=0;r<G;r++) for (let c=0;c<G;c++) {
+                const x=c*CS, y=r*CS;
+                if (grid[r][c]===1) {
+                    ctx.fillStyle='#1B4D3E'; ctx.beginPath();
+                    ctx.roundRect(x+1,y+1,CS-2,CS-2,4); ctx.fill();
+                } else {
+                    ctx.fillStyle = trail.has(key(r,c)) ? 'rgba(200,230,201,0.35)' : 'rgba(255,255,255,0.5)';
+                    ctx.beginPath(); ctx.roundRect(x+1,y+1,CS-2,CS-2,4); ctx.fill();
+                }
+                if (grid[r][c]===2) ctx.drawImage(imgs['garden_pink.png'],x+5,y+5,CS-10,CS-10);
+                if (grid[r][c]===3) ctx.drawImage(imgs['garden_leaf2.png'],x+5,y+5,CS-10,CS-10);
+                if (grid[r][c]===4) ctx.drawImage(imgs['garden_leaf.png'],x+5,y+5,CS-10,CS-10);
+
+                // Draw policy arrows for non-wall, non-special cells
+                if (grid[r][c]===0 && !(r===agentR&&c===agentC)) {
+                    const a = bestAction([r,c]);
+                    const qv = getQ([r,c],a);
+                    if (qv !== 0) {
+                        const arrows = ['←','→','↑','↓'];
+                        ctx.fillStyle = 'rgba(45,106,79,0.25)';
+                        ctx.font = '11px sans-serif';
+                        ctx.textAlign = 'center';
+                        ctx.fillText(arrows[a], x+CS/2, y+CS/2+4);
+                    }
+                }
+            }
+            // Agent
+            ctx.fillStyle='#2D6A4F';
+            ctx.shadowColor='rgba(27,77,62,0.3)'; ctx.shadowBlur=6;
+            ctx.beginPath(); ctx.arc(agentC*CS+CS/2, agentR*CS+CS/2, 7, 0, Math.PI*2); ctx.fill();
+            ctx.shadowBlur=0;
+            ctx.fillStyle='white'; ctx.beginPath();
+            ctx.arc(agentC*CS+CS/2, agentR*CS+CS/2, 2.5, 0, Math.PI*2); ctx.fill();
+        }
+
+        function runEpisode() {
+            let s = [...start], steps = 0, trail = new Set();
+            trail.add(key(s[0],s[1]));
+            const maxSteps = 80;
+            ep++;
+            epsilon = Math.max(0.05, epsilon * 0.97);
+
+            function step() {
+                if (s[0]===goal[0]&&s[1]===goal[1] || steps>=maxSteps) {
+                    if (steps < bestSteps && s[0]===goal[0]&&s[1]===goal[1]) bestSteps = steps;
+                    document.getElementById('rl-episode').textContent = ep;
+                    document.getElementById('rl-best').textContent = bestSteps===Infinity ? '--' : bestSteps;
+                    let msg, done = false;
+                    if (steps >= maxSteps) {
+                        msg = 'Timed out. Still learning...';
+                    } else if (bestSteps <= 9) {
+                        msg = 'Optimal policy learned! The agent now knows the shortest path.';
+                        done = true;
+                    } else if (bestSteps <= 12) {
+                        msg = 'Getting efficient!';
+                    } else {
+                        msg = 'Found the goal! Policy improving...';
+                    }
+                    if (ep >= 50 && !done) {
+                        msg = 'Training complete after 50 episodes. Best path: ' + bestSteps + ' steps.';
+                        done = true;
+                    }
+                    document.getElementById('rl-msg').textContent = msg;
+                    if (done) {
+                        running = false;
+                        document.getElementById('rl-start').textContent = 'Start';
+                        document.getElementById('rl-start').classList.remove('active');
+                    }
+                    if (running) setTimeout(runEpisode, 200);
+                    return;
+                }
+
+                const a = Math.random() < epsilon ? Math.floor(Math.random()*4) : bestAction(s);
+                let nr = s[0]+actions[a][0], nc = s[1]+actions[a][1];
+                if (nr<0||nr>=G||nc<0||nc>=G||grid[nr][nc]===1) { nr=s[0]; nc=s[1]; }
+
+                let reward = -0.1;
+                if (grid[nr][nc]===2) reward = 10;
+                if (grid[nr][nc]===3) reward = -5;
+                if (grid[nr][nc]===4) reward = 3;
+
+                const oldQ = getQ(s,a);
+                const maxNext = Math.max(...[0,1,2,3].map(a2=>getQ([nr,nc],a2)));
+                setQ(s, a, oldQ + lr*(reward + gamma*maxNext - oldQ));
+
+                s = [nr,nc];
+                steps++;
+                trail.add(key(s[0],s[1]));
+                document.getElementById('rl-steps').textContent = steps;
+                drawGrid(s[0],s[1], trail);
+
+                setTimeout(step, steps < 5 || ep < 3 ? 80 : 30);
+            }
+            step();
+        }
+
+        function toggleRL() {
+            running = !running;
+            document.getElementById('rl-start').textContent = running ? 'Pause' : 'Start';
+            document.getElementById('rl-start').classList.toggle('active', running);
+            if (running) runEpisode();
+        }
+
+        function resetRL() {
+            running = false; playMode = false; Q = {}; ep = 0; bestSteps = Infinity; epsilon = 1.0;
+            document.getElementById('rl-start').textContent = 'Watch AI';
+            document.getElementById('rl-start').classList.remove('active');
+            document.getElementById('rl-play').classList.remove('active');
+            document.getElementById('rl-arrows').style.display = 'none';
+            document.getElementById('rl-episode').textContent = '0';
+            document.getElementById('rl-steps').textContent = '0';
+            document.getElementById('rl-best').textContent = '--';
+            document.getElementById('rl-msg').textContent = 'Watch the AI learn or play yourself.';
+            drawGrid(0,0, new Set());
+        }
+
+        // Play mode
+        let playMode = false, playerPos = [0,0], playerSteps = 0, playerTrail = new Set();
+
+        function togglePlay() {
+            if (running) { running = false; document.getElementById('rl-start').textContent = 'Watch AI'; document.getElementById('rl-start').classList.remove('active'); }
+            playMode = !playMode;
+            document.getElementById('rl-play').classList.toggle('active', playMode);
+            document.getElementById('rl-arrows').style.display = playMode ? 'block' : 'none';
+            if (playMode) {
+                playerPos = [0,0]; playerSteps = 0; playerTrail = new Set();
+                playerTrail.add(key(0,0));
+                document.getElementById('rl-msg').textContent = 'Use arrows or keyboard to reach the pink flower!';
+                document.getElementById('rl-episode').textContent = '--';
+                document.getElementById('rl-steps').textContent = '0';
+                document.getElementById('rl-best').textContent = '--';
+                drawGrid(playerPos[0], playerPos[1], playerTrail);
+            } else {
+                document.getElementById('rl-msg').textContent = 'Watch the AI learn or play yourself.';
+                drawGrid(0,0, new Set());
+            }
+        }
+
+        function movePlayer(dr, dc) {
+            if (!playMode) return;
+            let nr = playerPos[0]+dr, nc = playerPos[1]+dc;
+            if (nr<0||nr>=G||nc<0||nc>=G||grid[nr][nc]===1) return;
+            playerPos = [nr,nc];
+            playerSteps++;
+            playerTrail.add(key(nr,nc));
+            document.getElementById('rl-steps').textContent = playerSteps;
+            drawGrid(nr, nc, playerTrail);
+
+            if (grid[nr][nc]===2) {
+                document.getElementById('rl-msg').textContent = 'You reached the goal in ' + playerSteps + ' steps!';
+                playMode = false;
+                document.getElementById('rl-play').classList.remove('active');
+                document.getElementById('rl-arrows').style.display = 'none';
+            } else if (grid[nr][nc]===3) {
+                document.getElementById('rl-msg').textContent = 'Ouch! Stepped on a trap. (-5) Keep going...';
+            } else if (grid[nr][nc]===4) {
+                document.getElementById('rl-msg').textContent = 'Nice! Found a bonus. (+3) Keep going...';
+            }
+        }
+
+        // Keyboard controls
+        window.addEventListener('keydown', (e) => {
+            if (!playMode) return;
+            if (e.key === 'ArrowUp') { e.preventDefault(); movePlayer(-1,0); }
+            if (e.key === 'ArrowDown') { e.preventDefault(); movePlayer(1,0); }
+            if (e.key === 'ArrowLeft') { e.preventDefault(); movePlayer(0,-1); }
+            if (e.key === 'ArrowRight') { e.preventDefault(); movePlayer(0,1); }
+        });
+
+        // Initial draw after images load
+        window.addEventListener('load', () => drawGrid(0,0, new Set()));
+
+    </script>
+
+</body>
+</html>
